@@ -1,5 +1,6 @@
 package org.finalexam.pages;
 
+import org.finalexam.utils.data.WebData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,18 +9,34 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class HomePage extends BasePage{
+
+    WebData webData = new WebData();
     @FindBy (css = ".promo-banner-container iframe")
     private WebElement promoBanner;
     @FindBy (css = "div.PromoBanner__CloseBtn")
     private WebElement closeBanner;
     @FindBy(id= "global-user-trigger")
     private WebElement userIcon;
+    @FindBy(id="Title")
+    private WebElement signUpTitle;
     @FindBy(css = "#global-header > div.container > ul > li.user > div > div > ul.account-management > li:nth-child(7) > a")
     private WebElement logInOption;
     @FindBy(css = "#global-header > div.container > ul > li.user > div > div > ul.account-management > li:nth-child(5) > a")
     private WebElement ESPNProfile;
     @FindBy(id = "oneid-iframe")
     private WebElement iframe;
+    @FindBy(id = "InputFirstName")
+    private WebElement signUpFirstNameInput;
+    @FindBy(id = "InputLastName")
+    private WebElement signUpLastNameInput;
+    @FindBy(id = "InputEmail")
+    private WebElement signUpEmailInput;
+    @FindBy(id = "password-new")
+    private WebElement signUpPasswordInput;
+    @FindBy(id = "BtnSubmit")
+    private WebElement signUpButtonFromModal;
+    @FindBy(id = "close")
+    private WebElement closeButton;
     @FindBy(css = "#root > div:nth-child(3) > div > div > div:nth-child(1) > form")
     private WebElement logInModal;
     @FindBy(id = "logo")
@@ -81,14 +98,41 @@ public class HomePage extends BasePage{
     public boolean isSignUpDisplayed(){
         return signUpButton.isDisplayed();
     }
-    public void typeEmail(String text){
-        typeOnInput(emailInput, text);
+    public boolean isSignUpTitleDisplayed(){
+        return signUpTitle.isDisplayed();
     }
-    public void typePassword(String text){
-        typeOnInput(passwordInput, text);
+    public boolean isFirstNameDisplayed(){
+        return signUpFirstNameInput.isDisplayed();
     }
-    public void clickOnLogInButton(){
-        clickElement(logInButton);
+    public boolean isLastNameDisplayed(){
+        return signUpLastNameInput.isDisplayed();
+    }
+    public boolean isEmailDisplayed(){
+        return signUpEmailInput.isDisplayed();
+    }
+    public boolean isPasswordDisplayed(){
+        return signUpPasswordInput.isDisplayed();
+    }
+    public boolean isSignUpButtonDisplayed(){
+        return signUpButtonFromModal.isDisplayed();
+    }
+    public boolean isCloseOptionDisplayed(){
+        return closeButton.isDisplayed();
+    }
+    public void typeFirstName(){
+        typeOnInput(signUpFirstNameInput, webData.getFirstName());
+    }
+    public void typeLastName(){
+        typeOnInput(signUpLastNameInput, webData.getLastName());
+    }
+    public void typeEmail(){
+        typeOnInput(signUpEmailInput, webData.getEmail());
+    }
+    public void typePassword(){
+        typeOnInput(signUpPasswordInput, webData.getPassword());
+    }
+    public void clickOnSignUpButtonFromModal(){
+        clickElement(signUpButtonFromModal);
     }
     public void clickOnDeleteAccountButton(){
         super.waitForVisibility(deleteAccountButton);
@@ -109,6 +153,7 @@ public class HomePage extends BasePage{
         return displayUser.findElement(By.tagName("span")).isDisplayed();
     }
     public void clickOnDeleteAccountConfirmation(){clickElement(deleteAccountConfirmation);}
+    public void clickOnSignUpButton(){clickElement(signUpButton);}
     public void clickOnOkButton(){clickElement(okButton);}
     public boolean isTheAccountDeactivated(){
         return accountDeactivated.isDisplayed();

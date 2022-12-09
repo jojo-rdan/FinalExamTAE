@@ -1,14 +1,15 @@
 package org.finalexam.tests.runners;
 
 
-
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
-        features = "src/test/java/org/finalexam/tests/features/web/Login.feature",
-        glue = {"StepsWeb"}
+        plugin = {"pretty"},
+        features = "src/test/java/org/finalexam/tests/features/web/Singup.feature",
+        glue = {"org.finalexam.tests.steps.web"}
 )
 
 public class WebTests extends AbstractTestNGCucumberTests {
+
 }
