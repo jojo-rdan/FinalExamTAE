@@ -1,8 +1,5 @@
 Feature: I want to log out of the account
 
-  Background:
-    Given I am a valid user logged into ESPN
-
   Scenario: Log Out successful
 
     Given I am in the home page of ESPN application

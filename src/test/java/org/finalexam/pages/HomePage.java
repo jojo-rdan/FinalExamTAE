@@ -19,7 +19,7 @@ public class HomePage extends BasePage{
     private WebElement userIcon;
     @FindBy(id="Title")
     private WebElement signUpTitle;
-    @FindBy(css = "#global-header > div.container > ul > li.user > div > div > ul.account-management > li:nth-child(7) > a")
+    @FindBy(xpath = "//header/div[2]/ul[1]/li[2]/div[1]/div[1]/ul[1]/li[7]/a[1]")
     private WebElement logInOption;
     @FindBy(css = "#global-header > div.container > ul > li.user > div > div > ul.account-management > li:nth-child(5) > a")
     private WebElement ESPNProfile;
@@ -134,9 +134,13 @@ public class HomePage extends BasePage{
     public void clickOnSignUpButtonFromModal(){
         clickElement(signUpButtonFromModal);
     }
+    public void clickOnSignUpCloseButton(){clickElement(closeButton);}
     public void clickOnDeleteAccountButton(){
         super.waitForVisibility(deleteAccountButton);
         clickElement(deleteAccountButton);
+    }
+    public void clickOnLogInButton(){
+        clickElement(logInButton);
     }
     public void getOutIframe(){
         getDriver().switchTo().defaultContent();
@@ -149,7 +153,7 @@ public class HomePage extends BasePage{
     public void clickOnLogOutButton(){
         clickElement(logOut);
     }
-    public boolean isUsernameNotDisplayed(){
+    public boolean isUsernameDisplayed(){
         return displayUser.findElement(By.tagName("span")).isDisplayed();
     }
     public void clickOnDeleteAccountConfirmation(){clickElement(deleteAccountConfirmation);}

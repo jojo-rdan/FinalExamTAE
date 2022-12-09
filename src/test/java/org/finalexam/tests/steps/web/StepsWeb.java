@@ -4,45 +4,48 @@ import io.cucumber.java.After;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.finalexam.utils.BaseTest;
 
-import static org.hamcrest.core.Is.is;
+public class StepsWeb extends BaseTest{
 
-public class StepsWeb extends BaseTest {
     @Given("I am in the home page of ESPN application")
-    public void i_am_in_the_home_page_of_espn_application() {
+    public void i_am_in_the_home_page_of_espn_application() throws InterruptedException {
         testSetUp();
     }
     @When("I try to sign up")
-    public void i_try_to_sign_up() {
-        home.mouseOverUser();
-        home.clickOnLogInHomePage();
-        home.goToIframe();
-        checkThat("Log In modal is available", home.isLogInModalDisplayed(), is(true));
-        checkThat("ESPN logo is available", home.isLogoDisplayed(), is(true));
-        checkThat("Log In button is available", home.isLogInDisplayed(), is(true));
-        checkThat("Sign Up button is available", home.isSignUpDisplayed(), is(true));
-        home.clickOnSignUpButton();
-        checkThat("Title is available", home.isSignUpTitleDisplayed(), is(true));
-        checkThat("First Name is available", home.isFirstNameDisplayed(), is(true));
-        checkThat("Last Name is available", home.isLastNameDisplayed(), is(true));
-        checkThat("Email is available", home.isEmailDisplayed(), is(true));
-        checkThat("Password is available", home.isPasswordDisplayed(), is(true));
-        checkThat("Sign Up button is available", home.isSignUpButtonDisplayed(), is(true));
-        checkThat("Close button is available", home.isCloseOptionDisplayed(), is(true));
-        home.typeFirstName();
-        home.typeLastName();
-        home.typeEmail();
-        home.typePassword();
-        home.clickOnSignUpButtonFromModal();
-
+    public void i_try_to_sign_up() throws InterruptedException {
+        signUp();
     }
     @Then("I should have entered my session")
-    public void i_should_have_entered_my_session() {
-        // Write code here that turns the phrase above into concrete actions
+    public void i_should_have_entered_my_session() throws InterruptedException {
+        userEntered();
+    }
 
+    @Given("I move to the watch section")
+    public void i_move_to_the_watch_section() {
+        logIn();
+        watchProcess();
+    }
+    @When("I click on the second card in the first carousel")
+    public void i_click_on_the_second_card_in_the_first_carousel() {
+        watchValidations();
+    }
+    @Then("I should be able to close the card")
+    public void i_should_be_able_to_close_the_card() {
+        closeWatchCard();
+    }
+
+    @When("I try to log out")
+    public void i_try_to_log_out() {
+        logIn();
+        logOutProcess();
+    }
+    @Then("I should be able to logout successfully")
+    public void i_should_be_able_to_logout_successfully() {
+        logOutValidation();
     }
     @After()
     public void quitBrowser() {
-        teardown();
+        //baseTest.teardown();
     }
 }

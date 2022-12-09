@@ -1,5 +1,8 @@
 package org.finalexam.utils.data;
 
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
 public class WebData {
     private String url;
     private String browser;
@@ -13,7 +16,7 @@ public class WebData {
         this.browser = "chrome";
         this.firstName = "Jordan";
         this.lastName = "Gonzalez";
-        this.email = "chutaen1010@gmail.com";
+        this.email = "chutaen1017@gmail.com";
         this.password = "Benjamin2022*";
     }
 
