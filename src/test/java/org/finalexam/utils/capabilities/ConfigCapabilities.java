@@ -11,7 +11,7 @@ import java.io.FileReader;
 /**
  * Class for capabilities configuration from external file.
  *
- * @author Arley.Bolivar
+ * @author Jordan.Gonzalez
  */
 public class ConfigCapabilities {
 
@@ -29,7 +29,7 @@ public class ConfigCapabilities {
      * SetUp's application.
      *
      * @param capabilities : DesiredCapabilities
-     * @author Arley.Bolivar
+     * @author Jordan.Gonzalez
      */
     public static void applicationSetUp(DesiredCapabilities capabilities) {
         capabilities.setCapability(APP_PACKAGE, getJsonDataProperty(APP_PACKAGE));
@@ -41,7 +41,7 @@ public class ConfigCapabilities {
      * Device SetUp.
      *
      * @param capabilities : DesiredCapabilities
-     * @author Arley.Bolivar
+     * @author Jordan.Gonzalez
      */
     public static void deviceSetUp(DesiredCapabilities capabilities) {
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, getJsonDataProperty(DEVICE_NAME));
@@ -55,7 +55,7 @@ public class ConfigCapabilities {
      *
      * @param property : String
      * @return String
-     * @author Arley.Bolivar
+     * @author Jordan.Gonzalez
      */
     private static String getJsonDataProperty(String property) {
         try {

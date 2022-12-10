@@ -1,7 +1,5 @@
 package org.finalexam.utils;
 
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
 import org.finalexam.configuration.web.WebDriverManager;
 import org.finalexam.pages.HomePage;
 import org.finalexam.pages.Watch;
@@ -9,10 +7,8 @@ import org.finalexam.reporting.Reporter;
 import org.finalexam.utils.data.WebData;
 import org.hamcrest.Matcher;
 import org.hamcrest.MatcherAssert;
-import org.openqa.selenium.JavascriptExecutor;
 
 import static org.hamcrest.core.Is.is;
-
 import static java.lang.String.format;
 
 public class BaseTest {
