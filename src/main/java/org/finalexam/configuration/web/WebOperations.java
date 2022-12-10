@@ -3,6 +3,7 @@ package org.finalexam.configuration.web;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -16,7 +17,7 @@ public class WebOperations {
 
     public WebOperations(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10L));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15L));
         initElements(driver, this);
     }
     public WebDriver getDriver() {
@@ -26,12 +27,12 @@ public class WebOperations {
         waitForClickable(element);
         element.click();
     }
+    public void scrollToElement(WebElement element){
+        Actions action = new Actions(getDriver());
+        action.scrollToElement(element);
+    }
     public void typeOnInput(WebElement element, String text) {element.sendKeys(text);}
     public void waitForVisibility(WebElement element) {wait.until(ExpectedConditions.visibilityOf(element));}
     public void waitForClickable(WebElement element) {wait.until(ExpectedConditions.elementToBeClickable(element));}
     public void waitForElements(By element){wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(element));}
-    public void switchToIframe(WebElement element) {
-        waitForVisibility(element);
-        getDriver().switchTo().frame(element);
-    }
 }

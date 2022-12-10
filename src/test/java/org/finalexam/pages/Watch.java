@@ -11,7 +11,7 @@ import java.util.List;
 public class Watch extends BasePage {
     @FindBy(css = "section.Carousel")
     private List<WebElement> carouselList;
-    @FindBy(css = ".lightbox__closebtn")
+    @FindBy(css = ".lightbox__closebtn--dark")
     private WebElement xButton;
     @FindBy(id= "global-user-trigger")
     private WebElement userIcon;
@@ -54,6 +54,6 @@ public class Watch extends BasePage {
         clickElement(logOut);
     }
     public boolean isUsernameNotDisplayed(){
-        return !displayUser.findElement(By.tagName("span")).isDisplayed();
+        return displayUser.findElement(By.tagName("span")).isDisplayed();
     }
 }

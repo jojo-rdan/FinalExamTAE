@@ -9,6 +9,8 @@ import org.finalexam.reporting.Reporter;
 import org.finalexam.utils.data.WebData;
 import org.hamcrest.Matcher;
 import org.hamcrest.MatcherAssert;
+import org.openqa.selenium.JavascriptExecutor;
+
 import static org.hamcrest.core.Is.is;
 
 import static java.lang.String.format;
@@ -64,15 +66,6 @@ public class BaseTest {
         home.mouseOverUser();
         checkThat("The user should have entered the session", home.isUsernameDisplayed(), is(true));
     }
-    public void logIn(){
-        home.mouseOverUser();
-        home.clickOnLogInHomePage();
-        home.goToIframe();
-        home.typeEmail();
-        home.typePassword();
-        home.clickOnLogInButton();
-        home.getOutIframe();
-    }
     public void watchProcess(){
         home.goToWatchPage();
         watch = new Watch(driver.getDriver());
@@ -84,9 +77,9 @@ public class BaseTest {
     }
     public void closeWatchCard(){
         watch.clickOnXButton();
+        watch.previousPage();
     }
     public void logOutProcess(){
-        watch.previousPage();
         watch.mouseOverUser();
         checkThat("The element 'Nav text' has the right information previously\n" +
                 "entered in the sign up modal: 'Welcome {{username}}!'", watch.isUsernameDisplayed(), is(true));

@@ -6,15 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class HomePage extends BasePage{
-
     WebData webData = new WebData();
-    @FindBy (css = ".promo-banner-container iframe")
-    private WebElement promoBanner;
-    @FindBy (css = "div.PromoBanner__CloseBtn")
-    private WebElement closeBanner;
     @FindBy(id= "global-user-trigger")
     private WebElement userIcon;
     @FindBy(id="Title")
@@ -43,30 +37,14 @@ public class HomePage extends BasePage{
     private WebElement logo;
     @FindBy(id = "BtnSubmit")
     private WebElement logInButton;
-    @FindBy(id = "AccountDeleteLink")
-    private WebElement deleteAccountButton;
-    @FindBy(id = "BtnSubmit")
-    private WebElement deleteAccountConfirmation;
-    @FindBy(id = "BtnSubmit")
-    private WebElement okButton;
     @FindBy(id = "BtnCreateAccount")
     private WebElement signUpButton;
-    @FindBy(id = "InputLoginValue")
-    private WebElement emailInput;
-    @FindBy(id = "InputPassword")
-    private WebElement passwordInput;
     @FindBy(css = "#global-header > div.container > ul > li.user > div > div > ul.account-management > li:nth-child(9) > a")
     private WebElement logOut;
     @FindBy(css = "#global-nav > ul > li.pillar.watch > a")
     private WebElement watchButton;
     @FindBy(css = ".display-user")
     private WebElement displayUser;
-    @FindBy(css = "#Title > span")
-    private WebElement accountDeactivated;
-    @FindBy(css = "p.text-block.text-left")
-    private WebElement uniqueElementForDelete;
-    @FindBy(id = "TextSuccess")
-    private WebElement uniqueElementForDeleteAgain;
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -132,51 +110,17 @@ public class HomePage extends BasePage{
         typeOnInput(signUpPasswordInput, webData.getPassword());
     }
     public void clickOnSignUpButtonFromModal(){
-        clickElement(signUpButtonFromModal);
+        super.scrollToElement(signUpButtonFromModal);
+        super.waitForVisibility(signUpButtonFromModal);
+            clickElement(signUpButtonFromModal);
     }
     public void clickOnSignUpCloseButton(){clickElement(closeButton);}
-    public void clickOnDeleteAccountButton(){
-        super.waitForVisibility(deleteAccountButton);
-        clickElement(deleteAccountButton);
-    }
-    public void clickOnLogInButton(){
-        clickElement(logInButton);
-    }
-    public void getOutIframe(){
-        getDriver().switchTo().defaultContent();
-        super.wait.until(ExpectedConditions.invisibilityOf(iframe));
-    }
     public Watch goToWatchPage(){
         clickElement(watchButton);
         return new Watch(getDriver());
     }
-    public void clickOnLogOutButton(){
-        clickElement(logOut);
-    }
     public boolean isUsernameDisplayed(){
         return displayUser.findElement(By.tagName("span")).isDisplayed();
     }
-    public void clickOnDeleteAccountConfirmation(){clickElement(deleteAccountConfirmation);}
     public void clickOnSignUpButton(){clickElement(signUpButton);}
-    public void clickOnOkButton(){clickElement(okButton);}
-    public boolean isTheAccountDeactivated(){
-        return accountDeactivated.isDisplayed();
-    }
-    public boolean isAnUniqueElement(){
-        super.waitForVisibility(uniqueElementForDelete);
-        return uniqueElementForDelete.isDisplayed();
-    }
-    public boolean isAnUniqueElementAgain(){
-        super.waitForVisibility(uniqueElementForDeleteAgain);
-        return uniqueElementForDeleteAgain.isDisplayed();
-    }
-    public boolean isPromoBannerDisplayed(){
-        boolean banner = false;
-        if(promoBanner.isDisplayed()){
-            super.switchToIframe(promoBanner);
-            super.clickElement(closeBanner);
-            banner = true;
-        }
-        return banner;
-    }
 }
