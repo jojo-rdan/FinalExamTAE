@@ -23,11 +23,6 @@ public abstract class MobileDriverManager {
     protected final AndroidDriver<AndroidElement> driver;
 
     /**
-     * The log.
-     */
-    public Logger log = Logger.getLogger(MobileDriverManager.class);
-
-    /**
      * Constructor method for standard screens object.
      *
      * @param driver : AndroidDriver
