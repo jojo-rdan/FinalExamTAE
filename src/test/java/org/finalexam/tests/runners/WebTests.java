@@ -6,7 +6,7 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
         plugin = {"pretty"},
-        features = "src/test/java/org/finalexam/tests/features/web/Singup.feature",
+        features = "src/test/java/org/finalexam/tests/features/web/web.feature",
         glue = {"org.finalexam.tests.steps.web"}
 )
 
