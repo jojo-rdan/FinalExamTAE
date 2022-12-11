@@ -4,7 +4,7 @@
 	"platformVersion": "9",
 	"appPackage": "com.disney.wdpro.dlr",
 	"appActivity": "com.disney.wdpro.park.activities.SplashActivity",
-	"app": "C:\\Users\\jordan.gonzalez\\IdeaProjects\\Final_Exam_TAE_Academy\\src\\main\\java\\org\\finalexam\\configuration\\app\\DisneylandÂ®_7.17_Apkpure.apk",
+	"app": "C:\\Users\\jordan.gonzalez\\Documents\\TAE Academy\\4-MOBILE-AUTOMATION\\Exercises\\DisneylandÂ®_7.17_Apkpure.apk",
 	"automationName": "UiAutomator2",
 	"autoGrantPermissions": "true",
     "skipServerInstallation": "true",
