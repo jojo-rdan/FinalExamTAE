@@ -17,7 +17,7 @@ public class WebOperations {
 
     public WebOperations(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15L));
+        this.wait = new WebDriverWait(driver, 15L);
         initElements(driver, this);
     }
     public WebDriver getDriver() {
@@ -29,7 +29,7 @@ public class WebOperations {
     }
     public void scrollToElement(WebElement element){
         Actions action = new Actions(getDriver());
-        action.scrollToElement(element);
+        action.moveToElement(element);
     }
     public void typeOnInput(WebElement element, String text) {element.sendKeys(text);}
     public void waitForVisibility(WebElement element) {wait.until(ExpectedConditions.visibilityOf(element));}

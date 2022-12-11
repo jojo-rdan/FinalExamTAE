@@ -35,7 +35,7 @@ public class MenuScreen extends MobileDriverManager {
      * Navigate to Privacy And Legal Screen from DashBoard Screen.
      */
     public PrivacyAndLegalScreen goToPrivacyAndLegalScreen() {
-        isElementAvailable(privacyAndLegalElement, Duration.ofSeconds(10));
+        isElementAvailable(privacyAndLegalElement, 10);
         click(privacyAndLegalButton);
         return new PrivacyAndLegalScreen(driver);
     }

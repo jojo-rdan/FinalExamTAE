@@ -35,43 +35,15 @@ public abstract class MobileDriverManager {
     }
 
     /**
-     * Swipe vertical.
-     *
-     * @param percentage of swipe
-     */
-    @SuppressWarnings({"rawtypes", "unused"})
-    public void swipeVertical(float percentage) {
-        Dimension windowSize = driver.manage().window().getSize();
-        TouchAction ta = new TouchAction(driver);
-        ta.press(PointOption.point(207, 582)).moveTo(PointOption.point(
-                8,-360)).release().perform();
-    }
-
-
-    /**
      * Wrapper for click event.
      *
      * @param element : AndroidElement
      * @author Jordan.González
      */
     public void click(AndroidElement element) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        WebDriverWait wait = new WebDriverWait(driver, 15);
         wait.until(ExpectedConditions.visibilityOf(element));
         element.click();
-    }
-
-
-    /**
-     * Wrapper for sendKeys event.
-     *
-     * @param element   : AndroidElement
-     * @param sequence: String
-     * @author Jordan.González
-     */
-    public void sendKeys(AndroidElement element, String sequence) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-        wait.until(ExpectedConditions.visibilityOf(element));
-        element.sendKeys(sequence);
     }
 
     /**
@@ -81,7 +53,7 @@ public abstract class MobileDriverManager {
      * @author Jordan.González
      */
     public boolean isElementAvailable(AndroidElement element) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+        WebDriverWait wait = new WebDriverWait(driver, 3);
         try {
             wait.until(ExpectedConditions.visibilityOf(element));
             return true;
@@ -97,7 +69,7 @@ public abstract class MobileDriverManager {
      * @param timeout : int
      * @author Jordan.González
      */
-    public boolean isElementAvailable(AndroidElement element, Duration timeout) {
+    public boolean isElementAvailable(AndroidElement element, int timeout) {
         WebDriverWait wait = new WebDriverWait(driver, timeout);
         try {
             wait.until(ExpectedConditions.visibilityOf(element));

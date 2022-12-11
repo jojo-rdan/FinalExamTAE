@@ -24,6 +24,8 @@ public class ConfigCapabilities {
     private static final String APP = "app";
     private static final String AUTOMATION_NAME = "automationName";
     private static final JsonParser parser = new JsonParser();
+    private static final String NO_RESET = "noReset";
+    private static final String TIMEOUT = "newCommandTimeout";
 
     /**
      * SetUp's application.
@@ -48,6 +50,8 @@ public class ConfigCapabilities {
         capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, getJsonDataProperty(PLATFORM_VERSION));
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, getJsonDataProperty(PLATFORM_NAME));
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, getJsonDataProperty(AUTOMATION_NAME));
+        capabilities.setCapability(MobileCapabilityType.NO_RESET, getJsonDataProperty(NO_RESET));
+        capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, getJsonDataProperty(TIMEOUT));
     }
 
     /**

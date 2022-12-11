@@ -21,8 +21,6 @@ public class StepsMobile extends MobileBaseTest {
     }
     @When("I select the Menu button on the dashboard page")
     public void i_select_the_menu_button_on_the_dashboard_page() {
-        environmentSetUp();
-        loadDashBoardScreen();
         goToMenuScreen();
     }
     @When("I tap on the Privacy & legal option")
@@ -44,5 +42,6 @@ public class StepsMobile extends MobileBaseTest {
     @Then("Reserve Dining Option should be enabled")
     public void reserve_dining_option_should_be_enabled() {
         addPlansValidator();
+        mobileApplicationEnd();
     }
 }
