@@ -52,10 +52,10 @@ public class DashBoardScreen extends MobileDriverManager {
      * Navigate to Map Screen from DashBoard Screen.
      */
     public MapScreen goToMapScreen() {
-        if (this.isElementAvailable(dismissWelcome, Duration.ofSeconds(25))){
+        if (this.isElementAvailable(dismissWelcome, 25)){
             click(dismissWelcome);
         }
-        if (this.isElementAvailable(dismissPreferenceUpdateButton, Duration.ofSeconds(25))){
+        if (this.isElementAvailable(dismissPreferenceUpdateButton, 25)){
             click(dismissPreferenceUpdateButton);
         }
         click(mapButton);
@@ -67,10 +67,10 @@ public class DashBoardScreen extends MobileDriverManager {
      * Navigate to Menu Screen from DashBoard Screen.
      */
     public MenuScreen goToMenuScreen() {
-        if (this.isElementAvailable(dismissWelcome, Duration.ofSeconds(25))){
+        if (this.isElementAvailable(dismissWelcome, 25)){
             click(dismissWelcome);
         }
-        if (this.isElementAvailable(dismissPreferenceUpdateButton, Duration.ofSeconds(25))){
+        if (this.isElementAvailable(dismissPreferenceUpdateButton, 25)){
             click(dismissPreferenceUpdateButton);
         }
         click(menuButton);
@@ -82,10 +82,10 @@ public class DashBoardScreen extends MobileDriverManager {
      * Validate if dining availability is displayed.
      */
     public boolean isDiningAvailabilityOptionDisplayed(){
-        if (this.isElementAvailable(dismissWelcome, Duration.ofSeconds(25))){
+        if (this.isElementAvailable(dismissWelcome, 25)){
             click(dismissWelcome);
         }
-        if (this.isElementAvailable(dismissPreferenceUpdateButton, Duration.ofSeconds(25))){
+        if (this.isElementAvailable(dismissPreferenceUpdateButton, 25)){
             click(dismissPreferenceUpdateButton);
         }
         click(addPlansButton);
