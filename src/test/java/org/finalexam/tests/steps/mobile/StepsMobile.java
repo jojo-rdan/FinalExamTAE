@@ -21,31 +21,28 @@ public class StepsMobile extends MobileBaseTest {
     }
     @When("I select the Menu button on the dashboard page")
     public void i_select_the_menu_button_on_the_dashboard_page() {
-
+        environmentSetUp();
+        loadDashBoardScreen();
+        goToMenuScreen();
     }
     @When("I tap on the Privacy & legal option")
     public void i_tap_on_the_privacy_legal_option() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        goToPrivacyAndLegal();
     }
     @Then("I can see a list of options")
     public void i_can_see_a_list_of_options() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        privacyAndLegalValidations();
     }
     @When("I select the Add Plans Button in the Dashboard Page")
     public void i_select_the_add_plans_button_in_the_dashboard_page() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        environmentSetUp();
     }
     @Then("I Check if the Reserve Dining Option is in the list")
     public void i_check_if_the_reserve_dining_option_is_in_the_list() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        loadDashBoardScreen();
     }
     @Then("Reserve Dining Option should be enabled")
     public void reserve_dining_option_should_be_enabled() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        addPlansValidator();
     }
 }

@@ -79,4 +79,17 @@ public class MobileBaseTest {
         Assert.assertTrue(mapScreen.categoryIsDisplayed(), "Category not displayed");
         Assert.assertTrue(mapScreen.filterIsDisplayed(), "Filter not displayed");
     }
+    public void goToMenuScreen() {
+        dashBoardScreen.goToMenuScreen();
+    }
+    public void goToPrivacyAndLegal() {
+        menuScreen.goToPrivacyAndLegalScreen();
+    }
+    public void privacyAndLegalValidations() {
+        Assert.assertTrue(privacyAndLegalScreen.isPrivacyAndLegalScreenDisplayed(), "Screen not displayed");
+        Assert.assertTrue(privacyAndLegalScreen.screenHaveSixOrMoreOptionsDisplayed(), "No options displayed");
+    }
+    public void addPlansValidator() {
+        dashBoardScreen.isDiningAvailabilityOptionDisplayed();
+    }
 }
