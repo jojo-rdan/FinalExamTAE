@@ -30,6 +30,7 @@ public class WebOperations {
     public void scrollToElement(WebElement element){
         Actions action = new Actions(getDriver());
         action.moveToElement(element);
+        action.perform();
     }
     public void typeOnInput(WebElement element, String text) {element.sendKeys(text);}
     public void waitForVisibility(WebElement element) {wait.until(ExpectedConditions.visibilityOf(element));}
