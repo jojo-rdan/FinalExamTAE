@@ -1,8 +1,6 @@
 package org.finalexam.pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
@@ -54,6 +52,12 @@ public class Watch extends BasePage {
         clickElement(logOut);
     }
     public boolean isUsernameNotDisplayed(){
-        return displayUser.findElement(By.tagName("span")).isDisplayed();
+        try {
+            displayUser.findElement(By.tagName("span")).isDisplayed();
+            return false;
+        } catch (StaleElementReferenceException err){
+            err.getCause();
+            return true;
+        }
     }
 }

@@ -16,7 +16,7 @@ public class WebData {
         this.browser = "chrome";
         this.firstName = "Jordan";
         this.lastName = "Gonzalez";
-        this.email = "chutaen1030@gmail.com";
+        this.email = "chutaen1034@gmail.com";
         this.password = "Benjamin2022*";
     }
 
